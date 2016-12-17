@@ -1,0 +1,32 @@
+{
+  "name": "RNBoilerplate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "lint": "eslint -c .eslintrc src",
+  },
+  "author": {
+    "name": "Hau Vo Phuoc (Kevin)",
+    "email": "kevinvovn@gmail.com",
+    "url": "https://twitter.com/hauvophuoc"
+  },
+  "dependencies": {
+    "react": "15.4.1",
+    "react-native": "0.39.2",
+    "react-native-navigation": "^2.0.0-experimental.155"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "18.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "eslint": "^3.12.2",
+    "eslint-plugin-react": "^6.8.0",
+    "jest": "18.0.0",
+    "react-test-renderer": "15.4.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
