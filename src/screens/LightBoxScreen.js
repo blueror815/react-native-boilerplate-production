@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,34 +7,7 @@ import {
   Dimensions
 } from 'react-native';
 
-export default class LightBoxScreen extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          This is a LightBox!
-        </Text>
-        {
-          this.props.greeting &&
-            <Text style={[styles.welcome, {fontSize: 16, marginTop: 20}]}>
-              {this.props.greeting}
-            </Text>
-        }
-        <TouchableOpacity onPress={() => this.onDismissPress()}>
-          <Text style={styles.button}>Dismiss</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-  onDismissPress() {
-    this.props.navigator.dismissLightBox();
-  }
-}
-
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: Dimensions.get('window').width * 0.8,
@@ -57,7 +30,37 @@ var styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     marginBottom: 10,
-    marginTop:10,
+    marginTop: 10,
     color: 'blue'
   }
 });
+
+export default class LightBoxScreen extends Component {
+  static propTypes = {
+    navigator: PropTypes.object,
+    message: PropTypes.string
+  }
+
+  onDismissPress = () => {
+    this.props.navigator.dismissLightBox();
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          This is a LightBox!
+        </Text>
+        {
+          this.props.message &&
+            <Text style={[styles.welcome, {fontSize: 16, marginTop: 20}]}>
+              {this.props.message}
+            </Text>
+        }
+        <TouchableOpacity onPress={this.onDismissPress}>
+          <Text style={styles.button}>Dismiss</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
