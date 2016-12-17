@@ -1,8 +1,8 @@
 # [WIP - Not ready for production]
 # react-native-boilerplate-production
 ## TODO:
-- Eslint (DONE)
-- Navigation (Tab, Sidebar, Single) (DO-ING)
+- Eslint (*DONE*)
+- Navigation (Tab, Sidebar, Single) (*DOING*)
 - Redux/Mobx
 - Form (supports validation)
 - Theme
