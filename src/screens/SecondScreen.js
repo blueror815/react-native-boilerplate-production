@@ -6,7 +6,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import {connect} from 'react-redux';
-import { increment } from 'app/reducers/counter';
+import { increment } from 'app/redux/reducers/counter';
 
 const styles = StyleSheet.create({
   container: {
