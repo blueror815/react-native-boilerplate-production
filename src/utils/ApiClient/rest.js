@@ -1,51 +1,52 @@
 
-export default class ApiClient {
+export default class Rest {
 
-  get(url, params) {
-    url = url + "?" + this.paramsToQuery(params);
+  get(baseUrl, params) {
+    const url = baseUrl + '?' + this.paramsToQuery(params);
     console.log('[GET] ', url);
-    return new Promise(function(success, error){
+    return new Promise((success, error) => {
+      let errorData = null;
       fetch(url)
       .then((response) => {
         if (response.status >= 200 && response.status < 300) {
           return response;
-        } else {
-          var error = {
-            status: response.status,
-            message: 'HTTP status error',
-            response: response
-          }
-          throw error;
         }
-      })
-      .then((response) => {
-        if(!response) {
-          var error = {
+
+        errorData = {
+          status: response.status,
+          message: 'HTTP status error',
+          response
+        };
+        throw errorData;
+      }).then((response) => {
+        if (!response) {
+          errorData = {
             status: response.status,
             message: 'Data is null',
             response: null
-          }
-          throw error;
+          };
+          throw errorData;
         }
         return response.json();
       })
-      .then(function(response){
+      .then((response) => {
         console.log('Response of ' + url, response);
         success(response);
       })
       .catch((e) => {
         return error(e);
       });
-    })
+    });
   }
 
-  post(url, params){
-    return new Promise(function(success, error){
-      params = this.paramsToQuery(params);
+  post(url, objParameters) {
+    return new Promise((success, error) => {
+      const params = this.paramsToQuery(objParameters);
+      let errorData = null;
       fetch(url, {
         method: 'POST',
         headers: {
-          'Accept': 'application/json',
+          Accept: 'application/json',
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: params
@@ -53,23 +54,22 @@ export default class ApiClient {
       .then((response) => {
         if (response.status >= 200 && response.status < 300) {
           return response;
-        } else {
-          var error = {
-            status: response.status,
-            message: 'HTTP status error',
-            response: response
-          }
-          throw error;
         }
+        errorData = {
+          status: response.status,
+          message: 'HTTP status error',
+          response
+        };
+        throw errorData;
       })
       .then((response) => {
-        if(!response) {
-          var error = {
+        if (!response) {
+          errorData = {
             status: response.status,
             message: 'Data is null',
             response: null
-          }
-          throw error;
+          };
+          throw errorData;
         }
         return response.json();
       })
@@ -81,16 +81,20 @@ export default class ApiClient {
         console.error(e);
         return error(e);
       });
-    })
+    });
   }
 
-  paramsToQuery(object){
-    if(!object)
+  paramsToQuery(object) {
+    if (!object) {
       return '';
+    }
+    // eslint-disable-next-line prefer-const
     let out = [];
-    for (let key in object) {
-      if(object[key] != null && object[key] != undefined)
+    // eslint-disable-next-line no-restricted-syntax
+    for (const key in object) {
+      if (object[key] !== null && object[key] !== undefined) {
         out.push(key + '=' + encodeURIComponent(object[key]));
+      }
     }
     return out.join('&');
   }
