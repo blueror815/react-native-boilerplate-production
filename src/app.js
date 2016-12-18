@@ -1,6 +1,6 @@
 import {Navigation} from 'react-native-navigation';
 import {registerScreens, Screens} from './screens';
-import createStore from '~/store';
+import createStore from 'app/store';
 
 registerScreens();
 createStore();
@@ -9,13 +9,13 @@ const tabs = [
   {
     label: 'One',
     screen: Screens.FirstScreen,
-    icon: require('./assets/images/one.png'),
+    icon: require('app/assets/images/one.png'),
     title: 'Screen One'
   },
   {
     label: 'Two',
     screen: Screens.SecondScreen,
-    icon: require('./assets/images/two.png'),
+    icon: require('app/assets/images/two.png'),
     title: 'Screen Two'
   }
 ];

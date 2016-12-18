@@ -1,5 +1,5 @@
 import {Navigation} from 'react-native-navigation';
-import * as Config from '../config';
+import * as Config from 'app/config';
 
 import FirstScreen from './FirstScreen';
 import SecondScreen from './SecondScreen';
