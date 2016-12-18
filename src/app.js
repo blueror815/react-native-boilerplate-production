@@ -1,9 +1,11 @@
+
+import {Provider} from 'react-redux';
 import {Navigation} from 'react-native-navigation';
-import {registerScreens, Screens} from './screens';
+import {registerScreens, Screens} from 'app/screens';
 import createStore from 'app/store';
 
-registerScreens();
-createStore();
+const store = createStore();
+registerScreens(store, Provider);
 
 const tabs = [
   {

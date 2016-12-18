@@ -17,11 +17,11 @@ export const Screens = {
   LightBoxScreen: `${Config.Namespace}.LightBoxScreen`
 };
 
-export function registerScreens() {
-  Navigation.registerComponent(Screens.FirstScreen, () => FirstScreen);
-  Navigation.registerComponent(Screens.SecondScreen, () => SecondScreen);
-  Navigation.registerComponent(Screens.ModalScreen, () => ModalScreen);
-  Navigation.registerComponent(Screens.NotificationScreen, () => NotificationScreen);
-  Navigation.registerComponent(Screens.SideMenu, () => SideMenu);
-  Navigation.registerComponent(Screens.LightBoxScreen, () => LightBoxScreen);
+export function registerScreens(store, provider) {
+  Navigation.registerComponent(Screens.FirstScreen, () => FirstScreen, store, provider);
+  Navigation.registerComponent(Screens.SecondScreen, () => SecondScreen, store, provider);
+  Navigation.registerComponent(Screens.ModalScreen, () => ModalScreen, store, provider);
+  Navigation.registerComponent(Screens.NotificationScreen, () => NotificationScreen, store, provider);
+  Navigation.registerComponent(Screens.SideMenu, () => SideMenu, store, provider);
+  Navigation.registerComponent(Screens.LightBoxScreen, () => LightBoxScreen, store, provider);
 }

@@ -1,4 +1,5 @@
-import * as Config from '../config';
+import * as Config from 'app/config';
+
 const INCREMENT = `${Config.Namespace}/counter/INCREMENT`;
 
 const initialState = {
