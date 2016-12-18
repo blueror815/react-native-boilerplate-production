@@ -1,26 +1,27 @@
 import * as Config from 'app/config';
 
-const INCREMENT = `${Config.Namespace}/counter/INCREMENT`;
+const PROGRESS = `${Config.Namespace}/upload/PROGRESS`;
 
 const initialState = {
-  count: 0
+  progress: 0
 };
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     // eslint-disable-next-line no-case-declarations
-    case INCREMENT:
-      const { count } = state;
+    case PROGRESS:
       return {
-        count: count + 1
+        ...state,
+        progress: action.progress
       };
     default:
       return state;
   }
 }
 
-export function increment() {
+export function setProgress(progress) {
   return {
-    type: INCREMENT
+    type: PROGRESS,
+    progress
   };
 }

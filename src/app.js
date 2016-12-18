@@ -12,19 +12,25 @@ const tabs = [
     label: 'Modal',
     screen: Screens.FirstScreen,
     icon: require('app/assets/images/one.png'),
-    title: 'Screen One'
+    title: 'Modal'
   },
   {
     label: 'Redux',
     screen: Screens.SecondScreen,
     icon: require('app/assets/images/two.png'),
-    title: 'Screen Two'
+    title: 'Redux'
   },
   {
     label: 'Form',
     screen: Screens.FormScreen,
     icon: require('app/assets/images/three.png'),
-    title: 'Screen Two'
+    title: 'Form'
+  },
+  {
+    label: 'Upload',
+    screen: Screens.UploadScreen,
+    icon: require('app/assets/images/one.png'),
+    title: 'Uploader'
   }
 ];
 

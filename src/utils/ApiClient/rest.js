@@ -1,5 +1,50 @@
+import {
+  NativeModules,
+  NativeAppEventEmitter,
+  Platform
+} from 'react-native';
+var WS = NativeModules.WS;
 
 export default class Rest {
+
+  postMultiPartWithProgress(url, headers, postData, imageKey, imageName, imageData, progressCb, cb) {
+
+      var obj = {
+          url,
+          imageKey,
+          imageName,
+          imageData,
+          parameters: postData
+      };
+
+      if(headers)
+        obj.headers = headers;
+
+      var self = this;
+
+      var subscription = null;
+
+      subscription = NativeAppEventEmitter.addListener(
+        'WSUploadingProgress',
+        (progress) => progressCb(progress)
+      );
+
+      let callback = function (err, res) {
+          let response = res;
+          if (typeof response === 'string') {
+              response = JSON.parse(res);
+          }
+          subscription.remove();
+          return cb(response);
+      };
+
+      if (Platform.OS === 'ios') {
+          WS.postMultipartWithProgress(obj, callback);
+      } else if (Platform.OS === 'android') {
+          // RNPostMultipart.postMultipartWithProgress(obj, callback);
+      }
+
+  }
 
   get(baseUrl, params) {
     const url = baseUrl + '?' + this.paramsToQuery(params);

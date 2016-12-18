@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import auth from './auth';
+import upload from './upload';
 import counter from './counter';
 
 export default combineReducers({
   counter,
-  auth
+  upload
 });

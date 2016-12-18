@@ -8,6 +8,7 @@ import ModalScreen from './ModalScreen';
 import NotificationScreen from './NotificationScreen';
 import LightBoxScreen from './LightBoxScreen';
 import FormScreen from './FormScreen';
+import UploadScreen from './UploadScreen';
 
 export const Screens = {
   FirstScreen: `${Config.Namespace}.FirstScreen`,
@@ -16,7 +17,8 @@ export const Screens = {
   NotificationScreen: `${Config.Namespace}.NotificationScreen`,
   SideMenu: `${Config.Namespace}.SideMenu`,
   LightBoxScreen: `${Config.Namespace}.LightBoxScreen`,
-  FormScreen: `${Config.Namespace}.FormScreen`
+  FormScreen: `${Config.Namespace}.FormScreen`,
+  UploadScreen: `${Config.Namespace}.UploadScreen`
 };
 
 export function registerScreens(store, provider) {
@@ -27,4 +29,5 @@ export function registerScreens(store, provider) {
   Navigation.registerComponent(Screens.SideMenu, () => SideMenu, store, provider);
   Navigation.registerComponent(Screens.LightBoxScreen, () => LightBoxScreen, store, provider);
   Navigation.registerComponent(Screens.FormScreen, () => FormScreen, store, provider);
+  Navigation.registerComponent(Screens.UploadScreen, () => UploadScreen, store, provider);
 }
