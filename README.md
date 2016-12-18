@@ -5,10 +5,9 @@
 - Navigation (Tab, Sidebar, Single) (**DONE** use *react-native-navigation*)
 - Redux (**DONE**)
 - Restful Async Service Caller with Middleware (**DONE**)
-- Form (**DONE** use *tcomb-form-native*)
-- Theme
-- Components (Button, Collapse, Chart, etc)
+- Form example (**DONE** use *tcomb-form-native*)
 - Storage (auto-sync with state)
+- Theme
 - Jest
 - TBD
 
