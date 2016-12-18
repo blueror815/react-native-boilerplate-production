@@ -4,8 +4,8 @@
 - Eslint (**DONE**)
 - Navigation (Tab, Sidebar, Single) (**DONE** use *react-native-navigation*)
 - Redux (**DONE**)
-- Async Service Caller (*DOING*)
-- Form (supports validation)
+- Restful Async Service Caller with Middleware (**DONE**)
+- Form (supports validation) (*DOING*)
 - Theme
 - Components (Button, Collapse, Chart, etc)
 - Storage (auto-sync with state)
