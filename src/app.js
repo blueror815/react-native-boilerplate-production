@@ -9,15 +9,21 @@ registerScreens(store, Provider);
 
 const tabs = [
   {
-    label: 'One',
+    label: 'Modal',
     screen: Screens.FirstScreen,
     icon: require('app/assets/images/one.png'),
     title: 'Screen One'
   },
   {
-    label: 'Two',
+    label: 'Redux',
     screen: Screens.SecondScreen,
     icon: require('app/assets/images/two.png'),
+    title: 'Screen Two'
+  },
+  {
+    label: 'Form',
+    screen: Screens.FormScreen,
+    icon: require('app/assets/images/three.png'),
     title: 'Screen Two'
   }
 ];
@@ -28,5 +34,5 @@ Navigation.startTabBasedApp({
     tabBarBackgroundColor: '#0f2362',
     tabBarButtonColor: '#ffffff',
     tabBarSelectedButtonColor: '#63d7cc'
-  }
+  },
 });

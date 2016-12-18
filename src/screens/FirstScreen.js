@@ -34,12 +34,14 @@ export default class FirstScreen extends Component {
   }
 
   onNotificationPress = () => {
+    //  only support ios
     this.props.navigator.showInAppNotification({
       screen: Screens.NotificationScreen
     });
   }
 
   onLightBoxPress = () => {
+    //  only support ios
     this.props.navigator.showLightBox({
       screen: Screens.LightBoxScreen,
       style: {
