@@ -1,7 +1,9 @@
 import {Navigation} from 'react-native-navigation';
 import {registerScreens, Screens} from './screens';
+import createStore from '~/store';
 
 registerScreens();
+createStore();
 
 const tabs = [
   {

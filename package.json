@@ -1,6 +1,21 @@
 {
   "name": "RNBoilerplate",
   "version": "0.0.1",
+  "author": "Hau Vo Phuoc (Kevin) <kevinvovn@gmail.com> (http://github.com/phuochau)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phuochau/react-native-boilerplate-production"
+  },
+  "homepage": "https://github.com/phuochau/react-native-boilerplate-production",
+  "keywords": [
+    "react-native",
+    "react-native-boiterplate",
+    "react-native-boilerplate-production",
+    "redux",
+    "starter",
+    "boilerplate"
+  ],
   "private": true,
   "scripts": {
     "start": "npm run lint & node node_modules/react-native/local-cli/cli.js start",
@@ -9,21 +24,19 @@
     "test": "jest",
     "lint": "eslint -c .eslintrc src"
   },
-  "author": {
-    "name": "Hau Vo Phuoc (Kevin)",
-    "email": "kevinvovn@gmail.com",
-    "url": "https://twitter.com/hauvophuoc"
-  },
   "dependencies": {
     "react": "15.4.1",
     "react-native": "0.39.2",
     "react-native-navigation": "^2.0.0-experimental.155",
+    "react-redux": "^5.0.1",
     "redux": "^3.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "babel-jest": "18.0.0",
     "babel-preset-react-native": "1.9.1",
+    "babel-root-import": "^4.1.5",
+    "babel-root-slash-import": "^1.1.0",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
