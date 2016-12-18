@@ -7,7 +7,9 @@
 - Restful Async Service Caller with Middleware (**DONE**)
 - Form example (**DONE** use *tcomb-form-native*)
 - Storage (auto-sync with state) (**DONE** use *redux-persist*)
-- Theme
+- Post multipart (with progress, pause, resume, stop)
+- Upload to S3
+- fastlane
 - Jest
 - TBD
 
