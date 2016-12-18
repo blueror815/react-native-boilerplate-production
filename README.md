@@ -2,8 +2,9 @@
 # react-native-boilerplate-production
 ## TODO:
 - Eslint (**DONE**)
-- Navigation (Tab, Sidebar, Single) (**DOING**)
-- Redux/Mobx
+- Navigation (Tab, Sidebar, Single) (**DONE** use *react-native-navigation*)
+- Redux (**DONE**)
+- Async Service Caller (*DOING*)
 - Form (supports validation)
 - Theme
 - Components (Button, Collapse, Chart, etc)
