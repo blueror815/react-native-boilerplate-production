@@ -14,11 +14,15 @@ default_platform :ios
 # don't worry, fastlane will prompt you for required
 # info which you can add here later
 lane :beta do
-  increment_build_number
+  match(type: "appstore")
+  increment_build_number(
+      xcodeproj: './ios/RNBoilerplate.xcodeproj'
+    )
 
   # build your iOS app
   gym(
-    # scheme: "YourScheme"
+    scheme: "RNBoilerplate",
+    project: "./ios/RNBoilerplate.xcodeproj"
   )
 
   # upload to Testflight
