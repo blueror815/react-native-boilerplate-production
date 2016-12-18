@@ -1,3 +1,21 @@
+# [WIP - Not ready for production]
+# react-native-boilerplate-production
+## TODO:
+- Eslint (**DONE**)
+- Navigation (Tab, Sidebar, Single) (**DONE** use *react-native-navigation*)
+- Redux (**DONE**)
+- Restful Async Service Caller with Middleware (**DONE**)
+- Form example (**DONE** use *tcomb-form-native*)
+- Storage (auto-sync with state) (**DONE** use *redux-persist*)
+- Post multipart (with progress, pause, resume, stop) (*DOING*)
+- Upload to S3
+- fastlane
+- Codepush
+- Firebase example
+- Jest
+- TBD
+
+---------------------------------------
 fastlane documentation
 ================
 # Installation
