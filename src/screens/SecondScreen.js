@@ -23,14 +23,20 @@ const styles = StyleSheet.create({
   }
 });
 
-class SecondScreen extends Component {
+@connect(
+  state => ({
+    count: state.counter.count
+  }),
+  { increment }
+)
+export default class SecondScreen extends Component {
   static propTypes = {
-    dispatch: PropTypes.func,
+    increment: PropTypes.func,
     count: PropTypes.number
   }
 
   onIncrease = () => {
-    this.props.dispatch(increment());
+    this.props.increment();
   }
 
   render() {
@@ -44,11 +50,3 @@ class SecondScreen extends Component {
     );
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    count: state.counter.count
-  };
-}
-
-export default connect(mapStateToProps)(SecondScreen);
