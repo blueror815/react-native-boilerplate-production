@@ -15,6 +15,7 @@ export default function reducer(state = initialState, action = {}) {
       const { count } = state;
       console.log(action.result);
       return {
+        ...state,
         count: count + 1
       };
     default:
