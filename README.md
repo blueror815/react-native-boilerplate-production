@@ -6,7 +6,7 @@
 - Redux (**DONE**)
 - Restful Async Service Caller with Middleware (**DONE**)
 - Form example (**DONE** use *tcomb-form-native*)
-- Storage (auto-sync with state)
+- Storage (auto-sync with state) (**DONE** use *redux-persist*)
 - Theme
 - Jest
 - TBD
