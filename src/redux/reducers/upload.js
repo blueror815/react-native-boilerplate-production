@@ -1,15 +1,17 @@
-import * as Config from 'app/config';
+import * as Config from '../../config';
 
-const PROGRESS = `${Config.Namespace}/upload/PROGRESS`;
+export const ACTIONS = {
+  SET_PROGRESS: `${Config.Namespace}/counter/SET_PROGRESS`
+};
 
-const initialState = {
+export const initialState = {
   progress: 0
 };
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     // eslint-disable-next-line no-case-declarations
-    case PROGRESS:
+    case ACTIONS.SET_PROGRESS:
       return {
         ...state,
         progress: action.progress
@@ -21,7 +23,7 @@ export default function reducer(state = initialState, action = {}) {
 
 export function setProgress(progress) {
   return {
-    type: PROGRESS,
+    type: ACTIONS.SET_PROGRESS,
     progress
   };
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import {Scene, Router} from 'react-native-router-flux';
 import {Provider} from 'react-redux';
-import MainScreen from 'app/screens/MainScreen';
-import createStoreWithMiddlewares from 'app/store';
+import MainScreen from './screens/MainScreen';
+import createStoreWithMiddlewares from './store';
 
 const store = createStoreWithMiddlewares();
 export default class Routes extends React.Component {

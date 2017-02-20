@@ -1,19 +1,20 @@
-import * as Config from 'app/config';
+import * as Config from '../../config';
 
-const INCREMENT = `${Config.Namespace}/counter/INCREMENT`;
-const INCREMENT_SUCCESS = `${Config.Namespace}/counter/INCREMENT_SUCCESS`;
-const INCREMENT_FAILURE = `${Config.Namespace}/counter/INCREMENT_FAILURE`;
+export const ACTIONS = {
+  INCREMENT: `${Config.Namespace}/counter/INCREMENT`,
+  INCREMENT_SUCCESS: `${Config.Namespace}/counter/INCREMENT_SUCCESS`,
+  INCREMENT_FAILURE: `${Config.Namespace}/counter/INCREMENT_FAILURE`
+};
 
-const initialState = {
+export const initialState = {
   count: 0
 };
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     // eslint-disable-next-line no-case-declarations
-    case INCREMENT_SUCCESS:
+    case ACTIONS.INCREMENT_SUCCESS:
       const { count } = state;
-      console.log(action.result);
       return {
         ...state,
         count: count + 1
@@ -25,7 +26,6 @@ export default function reducer(state = initialState, action = {}) {
 
 export function increment() {
   return {
-    types: [INCREMENT, INCREMENT_SUCCESS, INCREMENT_FAILURE],
-    promise: client => client.get('https://jsonplaceholder.typicode.com/posts')
+    type: ACTIONS.INCREMENT_SUCCESS
   };
 }

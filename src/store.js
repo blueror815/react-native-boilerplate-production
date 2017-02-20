@@ -2,9 +2,9 @@ import {AsyncStorage} from 'react-native';
 import {createStore, applyMiddleware} from 'redux';
 import {persistStore, autoRehydrate} from 'redux-persist';
 import { composeWithDevTools } from 'remote-redux-devtools';
-import reducers from 'app/redux/reducers';
-import clientMiddleware from 'app/redux/middlewares/ApiClientMiddleware';
-import ApiClient from 'app/helpers/ApiClient';
+import reducers from './redux/reducers';
+import clientMiddleware from './redux/middlewares/ApiClientMiddleware';
+import ApiClient from './helpers/ApiClient';
 
 export default function createStoreWithMiddlewares() {
   const client = new ApiClient();
