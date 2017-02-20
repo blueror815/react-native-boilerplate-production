@@ -4,7 +4,7 @@ import {persistStore, autoRehydrate} from 'redux-persist';
 import { composeWithDevTools } from 'remote-redux-devtools';
 import reducers from 'app/redux/reducers';
 import clientMiddleware from 'app/redux/middlewares/ApiClientMiddleware';
-import ApiClient from 'app/utils/ApiClient';
+import ApiClient from 'app/helpers/ApiClient';
 
 export default function createStoreWithMiddlewares() {
   const client = new ApiClient();

@@ -3,47 +3,44 @@ import {
   NativeAppEventEmitter,
   Platform
 } from 'react-native';
-var WS = NativeModules.WS;
+
+const WS = NativeModules.WS;
 
 export default class Rest {
 
   postMultiPartWithProgress(url, headers, postData, imageKey, imageName, imageData, progressCb, cb) {
+    // eslint-disable-next-line prefer-const
+    let obj = {
+      url,
+      imageKey,
+      imageName,
+      imageData,
+      parameters: postData
+    };
 
-      var obj = {
-          url,
-          imageKey,
-          imageName,
-          imageData,
-          parameters: postData
-      };
+    if (headers) {
+      obj.headers = headers;
+    }
 
-      if(headers)
-        obj.headers = headers;
+    const subscription = NativeAppEventEmitter.addListener(
+      'WSUploadingProgress',
+      (progress) => progressCb(progress)
+    );
 
-      var self = this;
-
-      var subscription = null;
-
-      subscription = NativeAppEventEmitter.addListener(
-        'WSUploadingProgress',
-        (progress) => progressCb(progress)
-      );
-
-      let callback = function (err, res) {
-          let response = res;
-          if (typeof response === 'string') {
-              response = JSON.parse(res);
-          }
-          subscription.remove();
-          return cb(response);
-      };
-
-      if (Platform.OS === 'ios') {
-          WS.postMultipartWithProgress(obj, callback);
-      } else if (Platform.OS === 'android') {
-          // RNPostMultipart.postMultipartWithProgress(obj, callback);
+    const callback = (err, res) => {
+      let response = res;
+      if (typeof response === 'string') {
+        response = JSON.parse(res);
       }
+      subscription.remove();
+      return cb(response);
+    };
 
+    if (Platform.OS === 'ios') {
+      WS.postMultipartWithProgress(obj, callback);
+    } else if (Platform.OS === 'android') {
+      // RNPostMultipart.postMultipartWithProgress(obj, callback);
+    }
   }
 
   get(baseUrl, params) {
