@@ -13,7 +13,7 @@ export const initialState = {
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     // eslint-disable-next-line no-case-declarations
-    case ACTIONS.INCREMENT_SUCCESS:
+    case ACTIONS.INCREMENT:
       const { count } = state;
       return {
         ...state,
@@ -26,6 +26,6 @@ export default function reducer(state = initialState, action = {}) {
 
 export function increment() {
   return {
-    type: ACTIONS.INCREMENT_SUCCESS
+    type: ACTIONS.INCREMENT
   };
 }
