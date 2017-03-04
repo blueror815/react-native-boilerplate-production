@@ -10,6 +10,6 @@ test('test with default action', t => {
 test('counter reducer handle increment', reducerTest(
   reducer,
   {count: 0},
-  increment(),
+  increment(), // we can use async at here
   {count: 1}
 ))
